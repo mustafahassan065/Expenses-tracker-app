@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: lavender;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        
+    }
+    .container1{
+        width: 40%;
+        height: 350px;
+        text-align: center;
+        background-color: white;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 160px;
+        border: 2px groove goldenrod;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .buttons{
+        display: flex;
+        flex-direction: column;
+    }
+     button{
+        width: 350px;
+        height: 35px;
+        margin-bottom: 20px;
+        background-color: orange;
+        border-color: orange;
+        
+    }
+    h1{
+        margin-bottom: 100px;
+        font-weight: bolder;
+        margin-bottom: -50px;
+    }
+    #orange{
+        background-color: white;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+    
+    }
+    #orange::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -110%;
+        width: 350px;
+        height: 50px;
+        background-color: orange;
+        transition: left 0.5s ease;
+        color: white;
+    }
+    #orange:hover::after {
+        left: 0;
+    }
+    #orange span{
+        z-index: 1;
+        position: relative;
+    }
+</style>
+<body>
+    <div class="container1">
+        <h1>EXEPENSES TRACKER</h1>
+        <h4>Manage Your Expenses !</h4>
+        <div class="buttons">
+            <a href="{{url_for('signup')}}" type="button"><button id="orange"><span>SIGN UP</span></button></a>
+            <a href="{{url_for('enter')}}" type="button"><button>LOG IN</button></a>    
+        </div>
+    </div>
+</body>
+</html>

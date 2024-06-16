@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: lavender;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    .container{
+        width: 95%;
+        height: 350px;
+        background-color: white;
+        border: 2px groove orange;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        position: relative;
+        margin-top: 20px;
+    }
+    form input{
+        width: 90%;
+        height: 30px;
+        border: 2px groove black;
+        margin: 10px 15px;
+    }
+    label{
+        margin-left: 15px;
+    }
+     input[type = text]{
+        font-size: 15px;
+        padding-left: 10px;
+    }
+    input[type = number]{
+        font-size: 15px;
+        padding-left: 10px;
+    }
+    h1{
+        text-align: center;
+        margin-top: 20px;
+        color: orange;
+    }
+    button{
+        background-color: orange;
+        border: 1px groove orange;
+        width: 200px;
+        height: 40px;
+        font-size: 20px;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    #purple{
+        position: absolute;
+        left: 15%;
+        top: 83%;
+    }
+    #purple:hover{
+        background-color: rgb(44, 44, 82);
+        border: 1px groove rgb(44, 44, 82) ;
+        
+    }
+    button{
+        margin-left: 18px;
+        position: relative;
+    }
+    .alert{
+        color: red;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+</style>
+<body>
+    <div class="container">
+        <form action="{{ url_for('update_page', id=data.id) }}" method="post">
+            <h1>UPDATE EXPENSES HERE:</h1>
+            <div class="alert">
+                {{message}}
+                </div>
+            <label>
+                Category:
+                <br>
+                <input name="category" id="category" type="text" placeholder="Enter category here" value="{{data.category}}"  required>
+            </label>
+            <br>
+            <label>
+                Description:
+                <br>
+                <input name="description" id="description" type="text" placeholder="Only 20 letters" value="{{ data.description}}" required>
+            </label>
+            <br>
+            <label>
+                Amount:
+                <br>
+                <input name="amount" id="amount" type="number" placeholder="Enter amount here" value = {{data.amount}} required>
+            </label>
+            <div class="buttons">
+                <button type="submit">Update  Expense</button>
+            </div>
+        </form>
+        <a href="{{url_for('show')}}" type="button"><button  id="purple">Total Expenses</button></a>
+    </div>
+</body>
+</html>

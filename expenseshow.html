@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- expenseshow.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button{
+            background-color: orange;
+            width: 150px;
+            height: 50px;
+            border: 3px groove orange;
+            margin-left: 5px;
+        
+            font-size: 18px;
+        }
+        button:hover{
+            background-color: rgb(30, 30, 46);
+            border-color: rgb(30, 30, 46);
+            color: white;
+        }
+        #form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            color: orange;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>MY EXPENSE LIST:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Time stamp</th>
+                <th>Updation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for link in links %}
+            <tr id="{{link.id}}">
+                <td>{{ link.category }}</td>
+                <td>{{ link.description }}</td>
+                <td>{{ link.amount }}</td>
+                <td>{{ link.Time }}</td>
+                <td id="form">
+                    <form action="/delete/{{ link.id }}" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <form action="/update/{{ link.id }}" method="get">
+                        <button type="submit">Update</button>
+                        </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h1>Total Expenses: {{ totalexpenses }}</h1>
+</body>
+</html>
+
+</body>
+</html>
